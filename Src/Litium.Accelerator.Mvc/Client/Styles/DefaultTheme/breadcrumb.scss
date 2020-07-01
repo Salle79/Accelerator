@@ -1,0 +1,45 @@
+.breadcrumbs-container {
+    &--hide-on-mobile {
+        @include mobile {
+            display: none;
+        }
+    }
+}
+
+.breadcrumbs {
+    background: $color-grey-lighter;
+    margin: rem(0 0 40px 0);
+    padding: rem(9px 18px);
+    font-weight: 300;
+    font-size: rem(13px);
+    line-height: rem(13px);
+
+    &__link {
+        text-transform: capitalize;
+        display: inline-block;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__item {
+        list-style: none;
+        display: inline-block;
+
+        &:not(:last-of-type):after {
+            content: '/';
+            margin: 0 10px;
+            color: $color-grey-darker;
+        }
+
+        &:last-of-type .breadcrumbs__link {
+            pointer-events: none;
+            cursor: default;
+        }
+
+        &--disabled .breadcrumbs__link {
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}
